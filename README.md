@@ -3,7 +3,7 @@
 |  Section      | Currently Used|
 | ------------- |:-------------:|
 |  Hardware     | Raspberry Pi  |
-|       OS      | Raspian       |
+|       OS      | Ubuntu 14.0.4       |
 |               |      ROS      |
 | zebra stripes | are neat      |
 
