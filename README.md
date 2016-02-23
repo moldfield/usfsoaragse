@@ -55,3 +55,7 @@ $	rqt
 ```
 
 ## Starting up the xbee
+
+## Servo driver
+
+16-Channel 12-bit PWM/Servo Driver http://adafru.it/815jkfldsjaflkdsafdsa
