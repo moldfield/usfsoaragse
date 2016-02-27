@@ -94,11 +94,11 @@ $	rqt
 Drivers for most things that will be needed can be found at https://github.com/ros-drivers/ . 
 
 Steps to install:
-	1. Find driver (eg: https://github.com/ros-drivers/rosserial.git).
-	2. Clone into the `src` folder in your catkin workspace directory.
-	3. `cd` back to workspace directory.
-	4. Run `$ catkin_make`
-	5. Run `$ catkin_make install`
+1. Find driver (eg: https://github.com/ros-drivers/rosserial.git).
+2. Clone into the `src` folder in your catkin workspace directory.
+3. `cd` back to workspace directory.
+4. Run `$ catkin_make`
+5. Run `$ catkin_make install`
 
 
 ## Creating and Sourcing a Workspace. 
