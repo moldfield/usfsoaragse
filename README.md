@@ -4,16 +4,57 @@
 | ------------- |:-------------:|
 |  Hardware     | Raspberry Pi  |
 |       OS      | Ubuntu 14.0.4       |
-|               |      ROS      |
-| zebra stripes | are neat      |
+|       Robot OS        |      ROS      |
+|   |      |
 
-##Usage
+## Basic Setup
 
-Before using any ros commands in any shell first run
+### Setting a static IP
+
+Find current settings with 
+```bash
+$  route -n
 ```
-source /opt/ros/indigo/setup.bash
-``` 
-# To check environment variables
+Edit `/etc/network/interfaces`
+```
+# Change line 
+iface eth0 inet dynamic
+
+# New settings
+iface eth0 inet static
+address 192.168.1.42 	# Static IP
+netmask 255.255.255.0
+network 192.168.1.0
+broadcast 192.168.1.255
+gateway 192.168.1.1
+
+
+```
+
+Then restart networking services
+```bash
+$  sudo service network-manager restart
+$  sudo service networking restart
+$  sudo service resolvconf restart
+```
+Find all ethernet connected devices
+```bash
+$  ifconfig -a | grep eth
+```
+
+Scan for all IP addresses on the network
+```bash
+# Make sure nmap is installed
+$  sudo apt-get -y install nmap
+
+# Scan Network
+$ nmap -sn 192.168.1.0/24
+
+# Login to device
+$ ssh <username>@<ip>
+```
+
+## To check environment variables
 ```
 $	printenv | grep ROS
 ```
@@ -104,13 +145,17 @@ Steps to install:
 ## Creating and Sourcing a Workspace. 
 
 First create `ros_workspace` and `ros_workspace/src`.
-```
+```bash
 $	cd ros_workspace/src
 $	git clone https://github.com/ros-drivers/rosserial.git
 $	cd ros_workspace
 $	catkin_make
 $	catkin_make install
 $	source ros_workspace/install/setup.bash
+
+# To make only a specific package
+$  catkin_make --pkg package_name
+
 ```
 
 
