@@ -38,10 +38,45 @@ export ROS_IP=192.168.1.173
 This will only need to be done once on every machine as long as the ip addresses remain the same.
 
 
+## The `~/.bashrc` file. 
+
+AKA stuff you would have to do every time you open up a terminal but are too lazy to
+```bash
+# Source the ROS installation
+$  source /opt/ros/indigo/setup.bash
+
+# Source a package
+$  source /home/athsmat/Rosstuff/mac_catkin_ws/devel/setup.bash
+
+# Let your device know who the master node is (even if it is the master node)
+$  export ROS_MASTER_URI=http://192.168.1.42:11311
+
+# Let every other device know your IP
+$  export ROS_IP=192.168.1.173
+
+#
+$
+
+#
+$
+
+#
+$
+
+#
+$
+
+#
+$
+
+
+```
+
+
 ## Starting up the kinect
 
 Remove the gspca modules so that the user-mode libfreenect drive can take over.
-```
+```bash
 $  	sudo modprobe -r gspca_kinect
 
 $  	sudo modprobe -r gspca_main
@@ -116,6 +151,14 @@ Al rosserial_xbee network coordinators should have an ID of 0. It also sets up s
 -Network ID `1331`
 -Frequency Channel `D`
 
+Nodes communicate at
+-API mode `0`
+-Baud rate `57600 baud`
+
+After setting up each node individually, set up the XBee network of nodes. 1 2 here is the first two non-coordinator nodes that were setup.
+```
+$	rosrun rosserial_xbee xbee_network.py /dev/ttyUSB0 1 2
+```
 ## Servo driver
 
 16-Channel 12-bit PWM/Servo Driver http://adafru.it/815
