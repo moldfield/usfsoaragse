@@ -33,10 +33,10 @@ gateway 192.168.1.1
 
 Then restart networking services
 ```bash
-$  sudo service network-manager restart
-$  sudo service networking restart
-$  sudo service resolvconf restart
+$  sudo reboot now
 ```
+
+
 Find all ethernet connected devices
 ```bash
 $  ifconfig -a | grep eth
@@ -177,6 +177,11 @@ $	lsusb | grep Future
 Here are some ways that I have seen them listed 
 	`Future Technology Devices International, Ltd FT232 USB-Serial (UART) IC`
 	`Future Technology Devices International, Ltd Bridge(I2C/SPI/UART/FIFO)`
+
+### Add the current user to the `dialout` group because that is the only thing that can write to `/dev/ttyUSB0`
+```bash
+$  sudo adduser $USER dialout
+```
 ### Setup Coordinator and nodes
 
 Use `-C` for Coordinater setup. This is the master node and should always have an id of `0`
@@ -192,13 +197,20 @@ $	rosrun rosserial_xbee setup_xbee.py /dev/ttyUSB0 1 # Node 1 for example
 Al rosserial_xbee network coordinators should have an ID of 0. It also sets up some default configurations.
 
 -API mode `2` (a binary protocol with escape characters)
+
 -Baud rate `57600 baud`
+
 -Network ID `1331`
+
 -Frequency Channel `D`
+
 
 Nodes communicate at
 -API mode `0`
 -Baud rate `57600 baud`
+
+Matts XBee Series 2 (ZigBee) 			013A20040F3BC74
+SOAR/Carltons XBee Series 2 (ZigBee)	013A20040F9DFD4
 
 After setting up each node individually, set up the XBee network of nodes. 1 2 here is the first two non-coordinator nodes that were setup.
 ```
