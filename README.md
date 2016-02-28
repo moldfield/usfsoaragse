@@ -196,13 +196,13 @@ $	rosrun rosserial_xbee setup_xbee.py /dev/ttyUSB0 1 # Node 1 for example
 
 Al rosserial_xbee network coordinators should have an ID of 0. It also sets up some default configurations.
 
--API mode `2` (a binary protocol with escape characters)
+--API mode `2` (a binary protocol with escape characters)
 
--Baud rate `57600 baud`
+--Baud rate `57600 baud`
 
--Network ID `1331`
+--Network ID `1331`
 
--Frequency Channel `D`
+--Frequency Channel `D`
 
 
 Nodes communicate at
