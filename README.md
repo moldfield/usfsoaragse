@@ -126,6 +126,11 @@ Launch files to open an OpenNI device and load all nodelets to convert raw depth
 ```
 $  	roslaunch openni_launch openni.launch
 ```
+Add depth registration in the `<your_catkin_ws>/src/openni_launch/launch/includes/device.launch` file between the `<node` tags.
+```
+$   <param name="depth_registration" value="true" />
+```
+
 Now start `rqt` from laptop, or secondary device with ros desktop tools, and select `plugins` then `visualization` then `image view`.
 ```
 $	rqt
